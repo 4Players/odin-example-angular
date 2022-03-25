@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+$bg: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'card');
+
+#login {
+  min-width: 360px;
+  margin: 0 auto;
+  max-width: 400px;
+  position: relative;
+  z-index: 3;
+  mat-card-header {
+    position: relative;
+    padding: 16px 16px 0 16px;
+    margin: -16px -16px 0 -16px;
+    border-radius: 4px;
+    z-index: 4;
+    background: $bg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    span {
+      font-weight: bold;
+    }
+  }
+  mat-card-content {
+    transition: margin 0.3s ease;
+    overflow: hidden;
+    height: 240px;
+    form {
+      width: 100%;
+      mat-form-field {
+        width: 100%;
+        opacity: 100%;
+        margin-bottom: 5px;
+        mat-icon {
+          &:hover {
+            transition: all 0.5s ease;
+            font-size: 24px;
+          }
+        }
+      }
+    }
+    &.fold {
+      transition: margin 0.3s ease;
+      margin-top: -250px;
+      form {
+        width: 100%;
+        mat-form-field {
+        }
+      }
+    }
+  }
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    button {
+      margin: 0;
+      &:last-child {
+        margin-right: 0;
+      }
+      &:last-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

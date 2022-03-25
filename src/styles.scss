@@ -1,0 +1,38 @@
+@use '@angular/material' as mat;
+@use 'app/peer/peer.theme.scss' as peer;
+@use 'app/login/login.theme.scss' as login;
+
+@include mat.core();
+
+$odin-angular-example-primary: mat.define-palette(mat.$pink-palette);
+$odin-angular-example-accent: mat.define-palette(mat.$blue-gray-palette, A200, A100, A400);
+$odin-angular-example-warn: mat.define-palette(mat.$red-palette);
+
+$light-theme: mat.define-dark-theme((
+  color: (
+    primary: $odin-angular-example-primary,
+    accent: $odin-angular-example-accent,
+    warn: $odin-angular-example-warn,
+  )
+));
+
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $odin-angular-example-primary,
+    accent: $odin-angular-example-accent,
+    warn: $odin-angular-example-warn,
+  )
+));
+
+.dark-mode {
+  @include mat.all-component-themes($dark-theme);
+  @include peer.peer($dark-theme);
+  @include login.login($dark-theme);
+}
+.light-mode {
+  @include mat.all-component-themes($light-theme);
+  @include login.login($light-theme);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

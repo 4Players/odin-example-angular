@@ -1,0 +1,63 @@
+<mat-card id="login">
+  <mat-card-header>
+    <mat-card-title>
+      <span>O</span>din <span>A</span>ngular <span>E</span>xample
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content [ngClass]="displayContent">
+    <form [formGroup]="loginForm">
+      <mat-form-field appearance="outline" color="primary">
+        <mat-label>Access Key</mat-label>
+        <input
+          formControlName="accessKeyControl"
+          matInput
+          autocomplete="off"
+          type="text"
+          placeholder="Name of the room">
+        <mat-icon (click)="copyKey()" matSuffix>flip_to_front</mat-icon>
+        <mat-hint>The access key to generate a valid token.</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="primary">
+        <mat-label>Room name</mat-label>
+        <input
+          formControlName="roomNameControl"
+          matInput
+          autocomplete="off"
+          placeholder="Name of the room">
+        <mat-hint>The name of the room to connect to.</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="primary">
+        <mat-label>User Name</mat-label>
+        <input
+          formControlName="userNameControl"
+          matInput
+          autocomplete="off"
+          placeholder="Placeholder">
+        <mat-hint>Your user name, if empty, the peer ID is used.</mat-hint>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      [disabled]="connectionState !== 0 || !loginForm.valid"
+      mat-raised-button
+      color="primary"
+      (click)="connect()">
+      Connect
+    </button>
+    <button
+      [disabled]="connectionState === 2"
+      mat-raised-button
+      color="accent"
+      (click)="generateAccessKey()">
+      Generate Access Key
+    </button>
+    <button
+      [disabled]="connectionState !== 2"
+      mat-raised-button
+      color="warn"
+      (click)="disconnect()">
+      Disconnect
+    </button>
+  </mat-card-actions>
+</mat-card>
