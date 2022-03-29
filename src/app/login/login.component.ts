@@ -11,12 +11,21 @@ import {Clipboard} from "@angular/cdk/clipboard";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+/**
+ * Renders the Login
+ */
 export class LoginComponent implements OnInit, OnDestroy {
+  /** Current state of the connection */
   connectionState: OdinConnectionState = OdinConnectionState.disconnected;
+  /** If there is an error, holds it */
   error: boolean = false;
+  /** Holds active subscriptions to unsubscribe them when the room gets destroyed */
   subscriptions = new Subscription();
+  /** Holds the access key after it was set */
   accessKey = '';
+  /** CSS Class for rendering */
   displayContent: 'fold' | 'expand' = 'expand';
+  /** Login Form */
   loginForm = new FormGroup({
     accessKeyControl: new FormControl(this.accessKey, [
       Validators.minLength(20),
@@ -30,6 +39,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    /**
+     * Handles some Component state depending on the connection state.
+     */
     this.subscriptions.add(this.odinService.connectionState$.subscribe(state => {
       if (state === OdinConnectionState.error) {
         this.error = true;
@@ -64,10 +76,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     await this.odinService.connect(accessKey, roomName, userName);
   }
 
+  /**
+   * Disconnects the room.
+   */
   disconnect() {
     this.odinService.disconnect();
   }
 
+  /**
+   * Copy the access Key to the clipboard to share it.
+   */
   async copyKey() {
     this.clipboard.copy(this.accessKey);
   }
