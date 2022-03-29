@@ -1,6 +1,5 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
-$bg: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'card');
 
 #login {
   min-width: 360px;
@@ -8,13 +7,13 @@ $bg: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'card');
   max-width: 400px;
   position: relative;
   z-index: 3;
+  overflow: hidden;
   mat-card-header {
     position: relative;
     padding: 16px 16px 0 16px;
     margin: -16px -16px 0 -16px;
     border-radius: 4px;
     z-index: 4;
-    background: $bg;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,7 +24,6 @@ $bg: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'card');
   }
   mat-card-content {
     transition: margin 0.3s ease;
-    overflow: hidden;
     height: 240px;
     form {
       width: 100%;

@@ -1,7 +1,28 @@
-<div id="side-container" [ngClass]="'dark-mode'">
-  <app-login></app-login>
-  <app-room></app-room>
-  <div class="info">
-    <a href="https://www.4players.io/">By 4players.io</a>
+<div id="page-bg" [ngClass]="mode">
+  <div id="side-container">
+    <app-login></app-login>
+    <app-room></app-room>
+    <div class="info">
+      <a href="https://www.4players.io/">By 4players.io</a>
+      <button
+        mat-icon-button
+        color="accent"
+        *ngIf="mode === 'dark'"
+        (click)="mode = 'light'"
+        aria-label="Toggle light mode">
+        <mat-icon>
+          wb_sunny
+        </mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        *ngIf="mode === 'light'"
+        (click)="mode = 'dark'"
+        aria-label="Toggle dark mode">
+        <mat-icon>
+          wb_sunny
+        </mat-icon>
+      </button>
+    </div>
   </div>
 </div>

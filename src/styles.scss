@@ -1,6 +1,7 @@
 @use '@angular/material' as mat;
 @use 'app/peer/peer.theme.scss' as peer;
 @use 'app/login/login.theme.scss' as login;
+@use 'app/room/room.theme.scss' as room;
 
 @include mat.core();
 
@@ -8,7 +9,8 @@ $odin-angular-example-primary: mat.define-palette(mat.$pink-palette);
 $odin-angular-example-accent: mat.define-palette(mat.$blue-gray-palette, A200, A100, A400);
 $odin-angular-example-warn: mat.define-palette(mat.$red-palette);
 
-$light-theme: mat.define-dark-theme((
+
+$light-theme: mat.define-light-theme((
   color: (
     primary: $odin-angular-example-primary,
     accent: $odin-angular-example-accent,
@@ -24,14 +26,21 @@ $dark-theme: mat.define-dark-theme((
   )
 ));
 
-.dark-mode {
-  @include mat.all-component-themes($dark-theme);
-  @include peer.peer($dark-theme);
-  @include login.login($dark-theme);
+@include mat.all-component-themes($dark-theme);
+@include peer.peer($dark-theme);
+@include login.login($dark-theme);
+@include room.room($dark-theme);
+
+#page-bg {
+  background: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'background');
 }
-.light-mode {
+
+#page-bg.light {
   @include mat.all-component-themes($light-theme);
+  @include peer.peer($light-theme);
   @include login.login($light-theme);
+  @include room.room($light-theme);
+  background: mat.get-color-from-palette(mat.$light-theme-background-palette, 'background');
 }
 
 html, body { height: 100%; }
