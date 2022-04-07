@@ -1,4 +1,4 @@
-# Odin Angular Example
+# 4Players ODIN Angular Demo
 
 This project is an example that shows the integration of the [ODIN Web SDK](https://github.com/angular/angular-cli) into an angular project.
 It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
