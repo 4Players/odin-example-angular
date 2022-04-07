@@ -1,11 +1,17 @@
 <mat-card id="room" [ngClass]="displayContent">
   <mat-card-header>
-    <mat-card-title *ngIf="connectionState === 0">Not connected!</mat-card-title>
-    <mat-card-title *ngIf="connectionState === 1">
+    <mat-card-title *ngIf="connectionState === 'disconnected'">
+      Not connected!
+    </mat-card-title>
+    <mat-card-title *ngIf="connectionState === 'connecting'">
       C<mat-spinner color="accent" diameter="16"></mat-spinner>nnecting...
     </mat-card-title>
-    <mat-card-title *ngIf="connectionState === 2">Room ID: {{odinService.room.id}}</mat-card-title>
-    <mat-card-title *ngIf="error">{{error}}</mat-card-title>
+    <mat-card-title *ngIf="connectionState === 'connected'">
+      Room ID: {{odinService.room.id}}
+    </mat-card-title>
+    <mat-card-title *ngIf="error">
+      {{error}}
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div *ngFor="let peer of peers | keyvalue" class="peer-wrapper">

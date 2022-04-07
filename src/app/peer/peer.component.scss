@@ -1,19 +1,22 @@
 
 .peer {
   height: 36px;
-  border-radius: 4px;
-  width: calc(100% - 30px);
+  border-radius: 18px;
+  width: calc(100% - 50px);
   margin: 0 5px 10px 5px;
+  padding: 0 20px;
   box-shadow: 0 0 5px 3px rgba(0,0,0,0.3);
   display: flex;
   align-items: center;
-  padding: 0 10px 0 10px;
+
   &:first-child {
     margin-top: 5px;
   }
+
   .peer-id {
     font-size: 18px;
   }
+
   .peer-name {
     margin-left: 10px;
     font-size: 18px;

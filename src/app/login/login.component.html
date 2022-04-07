@@ -1,7 +1,7 @@
 <mat-card id="login">
   <mat-card-header>
     <mat-card-title>
-      <span>O</span>din <span>A</span>ngular <span>E</span>xample
+      <span>ODIN</span> Angular Demo
     </mat-card-title>
   </mat-card-header>
   <mat-card-content [ngClass]="displayContent">
@@ -32,28 +32,28 @@
           formControlName="userNameControl"
           matInput
           autocomplete="off"
-          placeholder="Placeholder">
+          placeholder="Optional user name for yourself">
         <mat-hint>Your user name, if empty, the peer ID is used.</mat-hint>
       </mat-form-field>
     </form>
   </mat-card-content>
   <mat-card-actions>
     <button
-      [disabled]="connectionState !== 0 || !loginForm.valid"
+      [disabled]="connectionState !== 'disconnected' || !loginForm.valid"
       mat-raised-button
       color="primary"
       (click)="connect()">
       Connect
     </button>
     <button
-      [disabled]="connectionState === 2"
+      [disabled]="connectionState === 'connected'"
       mat-raised-button
       color="accent"
       (click)="generateAccessKey()">
       Generate Access Key
     </button>
     <button
-      [disabled]="connectionState !== 2"
+      [disabled]="connectionState !== 'connected'"
       mat-raised-button
       color="warn"
       (click)="disconnect()">

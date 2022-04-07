@@ -2,16 +2,20 @@
   width: 100%;
   height: 100%;
   padding: 10px;
+  box-sizing: border-box;
+
   #side-container {
     .info {
+      margin: 0 auto;
       min-width: 360px;
-      margin: 0 auto 0 auto;
       max-width: 432px;
       font-size: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       a {
+        color: royalblue;
         text-decoration: none;
       }
     }

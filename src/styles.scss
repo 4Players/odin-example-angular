@@ -9,6 +9,8 @@ $odin-angular-example-primary: mat.define-palette(mat.$pink-palette);
 $odin-angular-example-accent: mat.define-palette(mat.$blue-gray-palette, A200, A100, A400);
 $odin-angular-example-warn: mat.define-palette(mat.$red-palette);
 
+// Ignore intentionally duplicated styles
+mat.$theme-ignore-duplication-warnings: true;
 
 $light-theme: mat.define-light-theme((
   color: (
