@@ -26,6 +26,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "allowedCommonJsDependencies": [
+              "bowser",
               "tweetnacl"
             ],
             "inlineStyleLanguage": "scss",

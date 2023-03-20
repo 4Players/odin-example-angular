@@ -94,9 +94,9 @@ export class LoginComponent implements OnInit, OnDestroy {
    * Connect to the ODIN server and join the room.
    */
   async connect() {
-    const accessKey = this.loginForm.get('accessKeyControl')?.value;
-    const roomName = this.loginForm.get('roomNameControl')?.value;
-    const userName = this.loginForm.get('userNameControl')?.value;
+    const accessKey = String(this.loginForm.get('accessKeyControl')?.value);
+    const roomName = String(this.loginForm.get('roomNameControl')?.value);
+    const userName = String(this.loginForm.get('userNameControl')?.value);
 
     await this.odinService.connect(accessKey, roomName, userName);
   }
