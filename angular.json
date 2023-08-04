@@ -81,5 +81,7 @@
       }
     }
   },
-  "defaultProject": "odin-angular-example"
+  "cli": {
+    "analytics": false
+  }
 }
