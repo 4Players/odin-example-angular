@@ -11,11 +11,13 @@
 
   mat-card-header {
     position: relative;
-    padding: 16px 16px 0 16px;
-    margin: -16px -16px 0 -16px;
+    height: 40px;
+    margin-bottom: 10px;
+    // margin: -16px -16px 0 -16px;
+    padding: 0;
     border-radius: 4px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     z-index: 4;
 
@@ -26,7 +28,7 @@
 
   mat-card-content {
     transition: margin 0.3s ease;
-    height: 240px;
+    height: 270px;
 
     form {
       width: 100%;
@@ -34,7 +36,7 @@
       mat-form-field {
         width: 100%;
         opacity: 100%;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
 
         mat-icon {
           cursor: pointer;

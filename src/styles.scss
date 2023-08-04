@@ -17,6 +17,7 @@ $light-theme: mat.define-light-theme((
     primary: $odin-angular-example-primary,
     accent: $odin-angular-example-accent,
     warn: $odin-angular-example-warn,
+    background: mat.get-color-from-palette(mat.$light-theme-background-palette, 'background')
   )
 ));
 
@@ -25,6 +26,7 @@ $dark-theme: mat.define-dark-theme((
     primary: $odin-angular-example-primary,
     accent: $odin-angular-example-accent,
     warn: $odin-angular-example-warn,
+    background: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'background')
   )
 ));
 
@@ -35,6 +37,9 @@ $dark-theme: mat.define-dark-theme((
 
 #page-bg {
   background: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'background');
+  mat-card-header {
+    background: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'card');
+  }
 }
 
 #page-bg.light {
@@ -43,6 +48,9 @@ $dark-theme: mat.define-dark-theme((
   @include login.login($light-theme);
   @include room.room($light-theme);
   background: mat.get-color-from-palette(mat.$light-theme-background-palette, 'background');
+  mat-card-header {
+    background: mat.get-color-from-palette(mat.$light-theme-background-palette, 'card');
+  }
 }
 
 html, body { height: 100%; }
